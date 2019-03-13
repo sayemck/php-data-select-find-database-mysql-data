@@ -1,0 +1,11 @@
+CREATE PROCEDURE book_sel(
+		IN cbook_name VARCHAR(255), OUT cpublisher_name  VARCHAR(255), OUT cprice  int(20)
+		)
+BEGIN
+DECLARE dpublisher_name Varchar(255);
+DECLARE dprice  int(20);
+select publisher_name,price INTO dpublisher_name, dprice from book where book_name=cbook_name;
+SET cpublisher_name= dpublisher_name;
+SET cprice = dprice;
+END;
+//
